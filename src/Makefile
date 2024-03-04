@@ -21,13 +21,13 @@ all: $(EXE_BIN)
 $(EXE_BIN): $(OBJETS)
 	@echo "$(YELLOW)Génération de $@...$(NC)"
 	$(CC) -o $@ $^
-	@echo "$(GREEN)$(BOLD)$@ a été généré avec succès !$(NC)\r\n"
+	@echo "\r\n$(GREEN)$(BOLD)$@ a été généré avec succès !$(NC)\r\n"
 %.o: %.cpp
 	@echo "$(YELLOW)Compilation de $<...$(NC)"
 	$(CC) -c $< -o $@
 
 clean:
-	@echo "$(RED)Suppression des fichiers objets et des exécutables...$(NC)"
+	@echo "$(RED)$(BOLD)Suppression des fichiers objets et des exécutables...$(NC)"
 	rm -f *.o $(EXE_BIN)
 
 .PHONY: all clean
