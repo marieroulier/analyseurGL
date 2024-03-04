@@ -143,4 +143,3 @@ protected:
     int val ;
 
 };
-

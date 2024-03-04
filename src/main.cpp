@@ -5,23 +5,15 @@
 
 int main()
 {
-   string chaine("(1+34)*123");
+   string chaine("");
 
+   // Entrée par l'utilisateur de la chaîne à analyser
    cout << "Ecrivez la phrase à analyser (symboles acceptés : '*' '+' '(' ')' ) :" << endl;
    cin >> chaine;
 
    cout << "\033[33m" << "Analyse de " << chaine << "..." << "\033[0m" << endl << endl;
 
-   /*Lexer l(chaine);
-
-   Symbole *s;
-   while (*(s = l.Consulter()) != FIN)
-   {
-      s->Affiche();
-      cout << endl;
-      l.Avancer();
-   }*/
-
+   // Lancement de l'analyse
    Automate *a = new Automate(chaine);
    a->run();
 

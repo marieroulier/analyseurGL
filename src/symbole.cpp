@@ -9,6 +9,7 @@ void Symbole::Affiche()
 
 int Symbole::getValue() { return -1; }
 
+
 // Entier
 void Entier::Affiche()
 {
@@ -18,16 +19,16 @@ void Entier::Affiche()
 
 int Entier::getValue() { return valeur; }
 
+
 // Fin
 void Fin::Affiche()
 {
    Symbole::Affiche();
 }
 
+
 // Erreur
 void Erreur::Affiche()
 {
    Symbole::Affiche();
 }
-
-

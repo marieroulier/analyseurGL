@@ -19,11 +19,12 @@ void Automate::run()
 {
     bool prochainEtat = true;
 
+    // Analyse de la chaine
     while (prochainEtat)
     {
         if (DEBUG)
         {
-            cout << "----------" << endl;
+            cout << "**----------**" << endl;
             printPileEtat();
             printPileSymbole();
         }
@@ -38,6 +39,8 @@ void Automate::run()
         }
         prochainEtat = pileEtats.top()->transition(*this, s);
     }
+
+    // Fin de l'analyse et affichage du résultat
     if (*pileSymboles.top() != ERREUR)
     {
 
@@ -51,6 +54,7 @@ void Automate::run()
     }
 }
 
+// Transition par décalage
 void Automate::decalage(Symbole *s, Etat *e)
 {
     pileSymboles.push(s);
@@ -58,10 +62,13 @@ void Automate::decalage(Symbole *s, Etat *e)
     lexer->Avancer();
 }
 
+// Transition par réduction
+// n : numéro de la règle de réduction
 void Automate::reduction(int n, Symbole *s)
 {
     stack<Symbole *> aEnlever;
 
+	// Pop de la pile d'états et de la pile de symboles
     for (int i = 0; i < n; i++)
     {
         if (!pileEtats.empty() && !pileSymboles.empty())
@@ -119,6 +126,7 @@ void Automate::reduction(int n, Symbole *s)
     pileEtats.top()->transition(*this, new ExprConst(val));
 }
 
+// Passer d'un état à un autre
 void Automate::transitionSimple(Symbole *s, Etat *e)
 {
     pileSymboles.push(s);

@@ -1,19 +1,18 @@
 #include "expr.h"
 
-
-// ExprMult
+// Expression d'une multiplication
 int ExprMult::getValue()
 {
     return gauche->getValue() * droite->getValue();
 }
 
-// ExprPlus
+// Expression d'une addition
 int ExprPlus::getValue()
 {
     return gauche->getValue() + droite->getValue();
 }
 
-// ExprConst
+// Expression constante
 int ExprConst::getValue()
 {
     return val;

@@ -8,7 +8,6 @@ NC = \033[0m # Pas de couleur
 # Compilateur
 CC = g++
 
-
 # Sources et objets
 INTERFACE := $(wildcard *.h)
 REALISATION := $(INTERFACE:.h=.cpp)

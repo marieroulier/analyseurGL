@@ -4,8 +4,6 @@
 #include "etat.h"
 #include "expr.h"
 
-// OPENPAR, CLOSEPAR, PLUS, MULT, INT, FIN, ERREUR, EXPR
-
 // virtual
 Etat::~Etat() {}
 Etat::Etat(const string &s) { name = s; }
@@ -114,7 +112,7 @@ bool Etat3::transition(Automate &a, Symbole *s)
     case (CLOSEPAR):
     case (FIN):
     {
-        a.reduction(1, s); // 1 = le nombre de symbole/états a depop
+        a.reduction(1, s); // 1 = le nombre de symbole/états a pop
         break;
     }
     default:
@@ -229,7 +227,7 @@ bool Etat7::transition(Automate &a, Symbole *s)
     case (CLOSEPAR):
     case (FIN):
     {
-        a.reduction(3, s); // 3 = le nombre de symbole
+        a.reduction(3, s); // 3 = le nombre de symboles/états a pop
         break;
     }
 
